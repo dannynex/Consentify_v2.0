@@ -89,6 +89,7 @@ public class RegisterUser extends AppCompatActivity {
                         if(task.isSuccessful()){
                             User user = new User(name,surname,email);
                             //continue video 17:00  https://www.youtube.com/watch?v=Z-RE1QuUWPg
+                            
                         }
                     }
                 });
