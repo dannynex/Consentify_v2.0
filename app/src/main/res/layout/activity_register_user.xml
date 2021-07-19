@@ -54,8 +54,8 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Password"
+        android:inputType="text|textPassword"
         android:textSize="24dp"
-        android:inputType="text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailAddress"
@@ -73,7 +73,7 @@
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"/>
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
 
     <ProgressBar
