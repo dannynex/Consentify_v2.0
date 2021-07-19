@@ -19,35 +19,37 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class MainActivity extends AppCompatActivity {
     Button generateBtn;
-    EditText input;
+    //EditText input;
     ImageView qr_output;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         generateBtn = (Button) findViewById(R.id.generateBtn);
-        input = (EditText) findViewById(R.id.et_input);
+        //input = (EditText) findViewById(R.id.et_input);
         qr_output = (ImageView) findViewById(R.id.iv_output);
+
+        String in = "savvas".trim();
+        MultiFormatWriter writer = new MultiFormatWriter();
+        try {
+            BitMatrix matrix = writer.encode(in, BarcodeFormat.QR_CODE,
+                    250, 250);
+            BarcodeEncoder encoder = new BarcodeEncoder();
+            Bitmap bitmap = encoder.createBitmap(matrix);
+            qr_output.setImageBitmap(bitmap);
+
+            InputMethodManager manager = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            // manager.hideSoftInputFromWindow(input.getApplicationWindowToken(), 0);
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
         generateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String in = input.getText().toString().trim();
-                MultiFormatWriter writer = new MultiFormatWriter();
-                try {
-                    BitMatrix matrix = writer.encode(in, BarcodeFormat.QR_CODE,
-                            350, 350);
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    Bitmap bitmap = encoder.createBitmap(matrix);
-                    qr_output.setImageBitmap(bitmap);
 
-                    InputMethodManager manager = (InputMethodManager)
-                            getSystemService(Context.INPUT_METHOD_SERVICE);
-
-                    manager.hideSoftInputFromWindow(input.getApplicationWindowToken(), 0);
-
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }
             }
         });
     }

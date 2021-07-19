@@ -10,32 +10,35 @@
     android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <EditText
+
+    <ImageView
+        android:id="@+id/iv_output"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_input"
-        android:hint="Enter your name"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"/>
+        android:layout_height="64dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
 
     <Button
         android:id="@+id/generateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Generate QR Code"
+        android:text="Add connection"
+        android:textAllCaps="false"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.212"
-        tools:text="Generate QR Code" />
+        tools:text="Add connection" />
 
-    <ImageView
-        android:id="@+id/iv_output"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter" />
+        android:layout_height="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="#D8D6D6" />
+
 
 </LinearLayout>
